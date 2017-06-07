@@ -1,0 +1,26 @@
+<div *ngIf="listing">
+  <h2 class="page-header">{{listing.title}} <small>{{listing.city}}</small></h2>
+  <div class="row">
+    <div class="col-md-6">
+      <video width="100%" controls class="card-img-top img-fluid">
+        <source src="{{listing.url}}" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <!--
+      <img style="width: 100%" class="thubmbnail" src="{{imageUrl}}">
+    -->
+    </div>
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Owner: </strong>  {{listing.owner}}</li>
+        <li class="list-group-item"><strong>Description: </strong>  {{listing.desc}}</li>
+        <li class="list-group-item"><strong>Type: </strong>  {{listing.type}}</li>
+        <li class="list-group-item"><strong>Price: </strong>  {{listing.price}}</li>
+      </ul>
+    </div>
+    <a [routerLink]="['/edit-listing/'+listing.$key]" class="btn btn-default">Edit</a>
+    <a (click)="onDeleteClick()" class="btn btn-danger">Delete</a>
+  </div>
+
+  <a [routerLink]="['/listings']">GO BACK</a>
+</div>

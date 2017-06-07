@@ -1,0 +1,25 @@
+<div>
+  <h3>Hello! {{name}}</h3>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3 my-1" *ngFor="let listing of listings">
+            <div class="card">
+              <video width="400" class="card-img-top img-fluid">
+                <source src="{{listing.url}}" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+
+              <div class="card-block">
+                <h4 class="card-title">{{listing.title}}</h4>
+                <p class="card-text card-desc">{{listing.desc}}</p>
+                <a [routerLink]="['/listing/'+listing.$key]" class="btn btn-primary">Show Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<a href="/assets/img/news/rude-work.jpeg" data-lightbox="video" data-title="My caption">
+    <img src="/assets/img/news/rude-work.jpeg">
+</a>
