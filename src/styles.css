@@ -3,6 +3,7 @@
 body {
   background: #E2E4E6;
   padding-top: 100px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .form-container {
@@ -114,6 +115,14 @@ h2 {
   color: #ffffff !important;
 }
 
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.active {
+  color: #00B591 !important;
+}
+
 @media (max-width: 768px) {
   .logout {}
   .navbar-nav .nav-item+.nav-item {
@@ -156,6 +165,21 @@ h2 {
 /* Bootstrap overwrite */
 
 
+/* Navbar */
+
+.navbar-inverse .navbar-nav .nav-link {
+  color: #9E9E9E;
+}
+
+.active {
+  color: #ffffff !important;
+}
+
+.navbar-inverse .navbar-nav .nav-link:hover {
+  color: #ffffff !important;
+}
+
+
 /*
 .navbar {
   border-radius: 0;
@@ -183,3 +207,31 @@ h2 {
 }
 
 */
+
+
+/* Mankin */
+
+.manikin_svg {
+  max-width: 175px;
+  display: block;
+  margin: 0 auto;
+}
+
+#refresh {
+  display: block;
+  margin: 0 auto;
+}
+
+.rotate-button {
+  text-align: center
+}
+
+.cls-1 {
+  opacity: 0;
+  cursor: pointer
+}
+
+.cls-1:hover {
+  opacity: .2;
+  cursor: pointer
+}

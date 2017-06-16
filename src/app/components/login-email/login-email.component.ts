@@ -26,13 +26,17 @@ export class LoginEmailComponent implements OnInit {
       this.afAuth.auth.signInWithEmailAndPassword(formData.value.email, formData.value.password).then(
         (success) => {
         console.log(success);
-        this.router.navigate(['/listings']);
+        this.router.navigate(['/profile']);
       }).catch(
         (err) => {
         console.log(err);
         if(err.message == "The password is invalid or the user does not have a password.") {
           this.error = "Invalid Password";
-        }else {
+        }
+        else if(err.message == "There is no user record corresponding to this identifier. The user may have been deleted.") {
+          this.error = "No such user! Please try again"
+        }
+        else {
           this.error = err.message;
         }
       })

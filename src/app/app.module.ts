@@ -6,6 +6,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 // Firebase and angularfire modules
 import { AngularFireModule } from 'angularfire2';
@@ -33,6 +34,7 @@ import { NewsComponent } from './components/news/news.component';
 import { AddNewsComponent } from './components/add-news/add-news.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { LoginEmailComponent } from './components/login-email/login-email.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -43,9 +45,10 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'login-email', component: LoginEmailComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'news', component: NewsComponent},
+  {path: 'news', component: NewsComponent, canActivate: [AuthGuard]},
   {path: 'add-news', component: AddNewsComponent},
-  {path: 'blog', component: BlogComponent}
+  {path: 'blog', component: BlogComponent},
+  {path: 'profile', component: ProfileComponent}
 ]
 
 @NgModule({
@@ -62,7 +65,8 @@ const appRoutes: Routes = [
     NewsComponent,
     AddNewsComponent,
     BlogComponent,
-    LoginEmailComponent
+    LoginEmailComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +78,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+    Ng2SearchPipeModule
   ],
   providers: [FirebaseService, AngularFireDatabase, AuthService, AuthGuard],
   bootstrap: [AppComponent]

@@ -11,11 +11,10 @@ export class AddListingComponent implements OnInit {
   title: any;
   desc: any;
   owner: any;
-  bedrooms: any;
-  price: any;
-  type: any;
   image: any;
   url: any;
+  date: any = new Date();
+  createdAt: any = this.date.getTime();
 
   constructor(private firebaseService: FirebaseService, private router: Router) { }
 
@@ -24,10 +23,10 @@ export class AddListingComponent implements OnInit {
       title: this.title,
       desc: this.desc,
       owner: this.owner,
-      bedrooms: this.bedrooms,
-      price: this.price,
-      type: this.type
+      createdAt: this.createdAt
     }
+
+    console.log(this.createdAt);
 
     this.firebaseService.addListing(listing);
 

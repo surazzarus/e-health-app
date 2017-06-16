@@ -5,20 +5,21 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">e-Health App</a>
+      <a class="navbar-brand" [routerLink]="['/']" style="color: #B4B4B4;">e-Health App</a>
 
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/']">Home</a></li>
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/blog']">Blog</a></li>
-          <li class="nav-item" *ngIf="(afAuth.authState | async)"><a class="nav-link" [routerLink]="['/news']">News</a></li>
-          <li class="nav-item" *ngIf="(afAuth.authState | async)"><a class="nav-link" [routerLink]="['/listings']">Listings</a></li>
-          <li class="nav-item" *ngIf="(afAuth.authState | async)"><a class="nav-link" [routerLink]="['/add-listing']">Add Listings</a></li>
+          <li *ngIf="!(afAuth.authState | async)" class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/']">Home</a></li>
+          <li class="nav-item" *ngIf="(afAuth.authState | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/profile']">Profile</a></li>
+          <li class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/blog']">Blog</a></li>
+          <li class="nav-item" *ngIf="(afAuth.authState | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/news']">News</a></li>
+          <li class="nav-item" *ngIf="(afAuth.authState | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/listings']">Listings</a></li>
+          <li class="nav-item" *ngIf="(afAuth.authState | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/add-listing']">Add Listings</a></li>
         </ul>
         <ul class="navbar-nav">
-          <li *ngIf="!(afAuth.authState | async)" class="nav-item"><a class="btn btn-outline-secondary" [routerLink]="['/login']">Login</a></li>
-          <li *ngIf="!(afAuth.authState | async)" class="nav-item register"><a class="btn btn-outline-secondary" [routerLink]="['/signup']">Register</a></li>
-          <li *ngIf="(afAuth.authState | async)" class="nav-item"><a class="btn btn-outline-secondary logout" (click)="logout()">Logout</a></li>
+          <li *ngIf="!(afAuth.authState | async)" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="btn btn-outline-secondary" [routerLink]="['/login']">Login</a></li>
+          <li *ngIf="!(afAuth.authState | async)" class="nav-item register" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="btn btn-outline-secondary" [routerLink]="['/signup']">Register</a></li>
+          <li *ngIf="(afAuth.authState | async)" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="btn btn-outline-secondary logout" (click)="logout()">Logout</a></li>
         </ul>
       </div>
     </div>

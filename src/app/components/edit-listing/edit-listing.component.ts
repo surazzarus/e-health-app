@@ -11,12 +11,12 @@ import * as firebase from 'firebase/app';
 export class EditListingComponent implements OnInit {
   id: any;
   title: any;
-  city: any;
+  desc: any;
   owner: any;
-  bedrooms: any;
-  price: any;
-  type: any;
   image: any;
+  url: any;
+  date: any = new Date();
+  createdAt: any = this.date.getTime();
 
   constructor(
     private firebaseService: FirebaseService,
@@ -31,21 +31,17 @@ export class EditListingComponent implements OnInit {
       //console.log(listing);
       this.title = listing.title;
       this.owner = listing.owner;
-      this.city = listing.city;
-      this.bedrooms = listing.bedrooms;
-      this.price = listing.price;
-      this.type = listing.type;
+      this.desc = listing.desc,
+      this.createdAt = listing.createdAt
     })
   }
 
   onEditSubmit() {
     let listing = {
       title: this.title,
-      city: this.city,
+      desc: this.desc,
       owner: this.owner,
-      bedrooms: this.bedrooms,
-      price: this.price,
-      type: this.type
+      createdAt: this.createdAt
     }
 
     this.firebaseService.updateListing(this.id, listing);

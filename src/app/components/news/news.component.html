@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row my-flex-card justify-content-center">
-    <div class="col-md-5 m-1" *ngFor="let new of news">
+    <div class="col-md-5 m-1" *ngFor="let new of news|slice:0:show let i=index">
       <div class="card">
         <a target="_blank" href="{{new.siteUrl}}">
           <img class="card-img-top img-fluid" src="{{new.url}}" alt="">
-          <h5 class="card-title px-4 pt-4">{{new.title}}?</h5>
+          <h5 class="card-title px-4 pt-4">{{new.title}}</h5>
         </a>
           <div class="card-block">
             <p class="card-text news-desc">{{new.desc}}</p>
@@ -12,6 +12,11 @@
       </div>
     </div>
   </div>
+<div class="text-center">
+  <img [hidden]="show >= allnews" src="assets/img/more.png" (click)="show = show + 6">
+</div>
+
+
 </div>
 
 <!--

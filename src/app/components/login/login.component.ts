@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.afAuth.authState.subscribe(auth => {
       if(auth) {
         console.log(auth);
-        this.router.navigateByUrl('/listings');
+        this.router.navigateByUrl('/profile');
       }
     })
   }
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   signInWithGoogle() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((success) => {
-          this.router.navigate(['/listings']);
+          this.router.navigate(['/profile']);
         }).catch(
           (err) => {
             this.error = err;
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   signInWithFacebook() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
       .then((success) => {
-          this.router.navigate(['/listings']);
+          this.router.navigate(['/profile']);
         }).catch(
           (err) => {
             this.error = err;

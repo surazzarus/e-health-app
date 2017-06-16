@@ -10,6 +10,8 @@ export class FirebaseService {
   folder: any;
   newsFolder: any;
 
+  iRef: firebase.storage.UploadTask;
+
   constructor(private db: AngularFireDatabase) {
     this.folder = 'listingimages';
     this.newsFolder = 'newsimages';
@@ -23,12 +25,7 @@ export class FirebaseService {
       }
     }) as FirebaseListObservable<Listing[]>;
 
-    this.news = this.db.list('/news', {
-      query: {
-        limitToLast: 6,
-        orderByChild: 'createdAt'
-      }
-    }) as FirebaseListObservable<News[]>;
+    this.news = this.db.list('/news') as FirebaseListObservable<News[]>;
   }
 
   getListings() {
@@ -51,10 +48,15 @@ export class FirebaseService {
     for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
       let path = `/${this.folder}/${selectedFile.name}`;
       //console.log(path);
-      let iRef = storageRef.child(path);
-      iRef.put(selectedFile).then((snapshot) => {
+      this.iRef = storageRef.child(path).put(selectedFile);
+
+      this.iRef.on(firebase.storage.TaskEvent.STATE_CHANGED),
+        (snapshot) => {
+          listing.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        },
+
+      this.iRef.then((snapshot) => {
         listing.url = snapshot.downloadURL;
-        console.log(listing.url);
         //listing.image = selectedFile.name;
         listing.path = path;
         //console.log(path);
@@ -98,11 +100,9 @@ export class FirebaseService {
 interface Listing {
     $key?: string;
     title?: string;
-    type?: string;
     image?: string;
-    city?: string;
     owner?: string;
-    bedrooms?: string;
+    createdAt?: any;
 }
 
 interface News {

@@ -9,21 +9,11 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./listings.component.css']
 })
 export class ListingsComponent implements OnInit {
-  name: any;
   listings: any;
   listing: any;
+  term: any;
 
-  constructor(private firebaseService: FirebaseService, public afAuth: AngularFireAuth) {
-    // shows the name
-    this.afAuth.authState.subscribe(auth => {
-      //console.log(auth)
-      if(auth) {
-        /* Show display name OR only name before '@' in email */
-        this.name = auth.displayName || auth.email.split('@')[0];
-        //console.log(auth.displayName);
-      }
-    })
-  }
+  constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit() {
     // Done as per angularfire2 way with async
@@ -39,6 +29,59 @@ export class ListingsComponent implements OnInit {
         this.listings = listings
       })
 
+  }
+
+  head() {
+    this.term = 'head';
+  }
+  neck() {
+    this.term = 'neck';
+  }
+  lower_leg() {
+    this.term = "lower leg";
+  }
+  thigh() {
+    this.term = "thigh";
+  }
+  abdomen() {
+    this.term = "abdomen";
+  }
+  rips() {
+    this.term = "rips";
+  }
+  forearm() {
+    this.term = "forearm";
+  }
+  upper_arm() {
+    this.term = "upper-arm";
+  }
+  chest() {
+    this.term = "chest";
+  }
+  ankle_foot() {
+    this.term = "ankle-foot";
+  }
+  knee() {
+    this.term = "knee";
+  }
+  hip() {
+    this.term = "hip";
+  }
+  wrist() {
+    this.term = "wrist";
+  }
+  elbow() {
+    this.term = "elbow";
+  }
+  shoulder() {
+    this.term = "shoulder";
+  }
+  hand() {
+    this.term = "hand";
+  }
+
+  refresh() {
+    this.term = "";
   }
 
 }
