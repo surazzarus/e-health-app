@@ -161,6 +161,10 @@ h2 {
   margin-bottom: 15px;
 }
 
+#loadMore {
+  cursor: pointer;
+}
+
 
 /* Bootstrap overwrite */
 

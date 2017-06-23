@@ -14,7 +14,9 @@
           <li class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/blog']">Blog</a></li>
           <li class="nav-item" *ngIf="(afAuth.authState | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/news']">News</a></li>
           <li class="nav-item" *ngIf="(afAuth.authState | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/listings']">Listings</a></li>
+          <!--
           <li class="nav-item" *ngIf="(afAuth.authState | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/add-listing']">Add Listings</a></li>
+          -->
         </ul>
         <ul class="navbar-nav">
           <li *ngIf="!(afAuth.authState | async)" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="btn btn-outline-secondary" [routerLink]="['/login']">Login</a></li>

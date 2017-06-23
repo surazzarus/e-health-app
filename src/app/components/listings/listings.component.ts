@@ -31,53 +31,8 @@ export class ListingsComponent implements OnInit {
 
   }
 
-  head() {
-    this.term = 'head';
-  }
-  neck() {
-    this.term = 'neck';
-  }
-  lower_leg() {
-    this.term = "lower leg";
-  }
-  thigh() {
-    this.term = "thigh";
-  }
-  abdomen() {
-    this.term = "abdomen";
-  }
-  rips() {
-    this.term = "rips";
-  }
-  forearm() {
-    this.term = "forearm";
-  }
-  upper_arm() {
-    this.term = "upper-arm";
-  }
-  chest() {
-    this.term = "chest";
-  }
-  ankle_foot() {
-    this.term = "ankle-foot";
-  }
-  knee() {
-    this.term = "knee";
-  }
-  hip() {
-    this.term = "hip";
-  }
-  wrist() {
-    this.term = "wrist";
-  }
-  elbow() {
-    this.term = "elbow";
-  }
-  shoulder() {
-    this.term = "shoulder";
-  }
-  hand() {
-    this.term = "hand";
+  bodyParts(parts) {
+    this.term = parts;
   }
 
   refresh() {
