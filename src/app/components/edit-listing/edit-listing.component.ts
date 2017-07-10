@@ -46,7 +46,7 @@ export class EditListingComponent implements OnInit {
 
     this.firebaseService.updateListing(this.id, listing);
 
-    this.router.navigate(['/listings']);
+    this.router.navigate(['listings']);
   }
 
 }

@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="news" class="container">
   <div class="row my-flex-card justify-content-center">
     <div class="col-md-5 m-1" *ngFor="let new of news|slice:0:show let i=index">
       <div class="card">
@@ -12,11 +12,9 @@
       </div>
     </div>
   </div>
-<div class="text-center">
-  <img [hidden]="show >= allnews" id="loadMore" src="assets/img/more.png" (click)="show = show + 6">
-</div>
-
-
+  <div class="text-center">
+    <img [hidden]="show >= allnews" id="loadMore" src="assets/img/more.png" (click)="show = show + 6">
+  </div>
 </div>
 
 <!--

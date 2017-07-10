@@ -1,6 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { moveIn } from '../../router.animations';
 
@@ -11,16 +12,17 @@ import { moveIn } from '../../router.animations';
   animations: [moveIn()]
 })
 export class LoginComponent implements OnInit {
+
   error: any;
 
   constructor(
     public afAuth: AngularFireAuth,
     private router: Router
   ) {
-    // when the app first loads, then check if the user is logged in and if yes, send them to 'listings'
-    this.afAuth.authState.subscribe(auth => {
-      if(auth) {
-        console.log(auth);
+    // when the app first loads, then check if the user is logged in and if yes, send them to 'profile'
+    this.afAuth.authState.subscribe(user => {
+      if(user) {
+        console.log(user);
         this.router.navigateByUrl('/profile');
       }
     })

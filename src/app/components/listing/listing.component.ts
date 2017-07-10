@@ -1,9 +1,9 @@
 import { AfterViewInit, Component, ElementRef, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import {FirebaseService} from '../../services/firebase.service';
 import {Router, ActivatedRoute, Params} from '@angular/router';
-import * as firebase from 'firebase/app';
+import * as firebase from 'firebase';
 
-declare function videojs(id: any, options: any, ready:any): any;
+declare function videojs(id: any, options: any, ready: any): any;
 //declare let videojs : any;
 
 @Component({
@@ -26,19 +26,23 @@ export class ListingComponent implements AfterViewInit, OnInit, OnDestroy {
     private firebaseService: FirebaseService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     //// Fetch the ID from the URL ////
     this.id = this.route.snapshot.params['id'];
-    //console.log(this.id);
+    console.log(this.id);
 
     this.firebaseService.getListingDetails(this.id).subscribe(listing => {
+      console.log(listing)
       this.listing = listing;
       this.videoUrl = listing.url;
       //console.log(this.listing)
 
-      // Image part
+      /////// Image part ///////
+      /* Don't need the lower code if we use "snapshot.downloadURL;" on service */
+      
+      /*
       let storageRef = firebase.storage().ref();
       let spaceRef = storageRef.child(listing.path);
       storageRef.child(this.listing.path).getDownloadURL().then((url) => {
@@ -48,6 +52,7 @@ export class ListingComponent implements AfterViewInit, OnInit, OnDestroy {
       }).catch((error) => {
         console.log(error);
       });
+      */
     })
   }
 
@@ -58,12 +63,12 @@ export class ListingComponent implements AfterViewInit, OnInit, OnDestroy {
 
     this.router.navigate(['/listings']);
   }
-  
+
 
   ngAfterViewInit() {
     this.videoJSplayer = videojs(document.getElementById(this.id), {}, function() {
-                            this.play();
-                      } );
+      this.play();
+    });
   }
 
   ngOnDestroy() {

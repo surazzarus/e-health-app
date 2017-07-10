@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../../services/firebase.service';
 import {Router} from '@angular/router';
+import { Upload } from '../../../upload';
+import * as _ from "lodash";
 
 @Component({
   selector: 'app-add-listing',
@@ -16,6 +18,9 @@ export class AddListingComponent implements OnInit {
   date: any = new Date();
   createdAt: any = this.date.getTime();
 
+  selectedFiles: FileList;
+  currentUpload: Upload;
+
   constructor(private firebaseService: FirebaseService, private router: Router) { }
 
   onAddSubmit() {
@@ -30,8 +35,21 @@ export class AddListingComponent implements OnInit {
 
     this.firebaseService.addListing(listing);
 
-    this.router.navigate(['listings']);
+    this.router.navigate(['/listings']);
   }
+
+/*
+  detectFiles(event) {
+      this.selectedFiles = event.target.files;
+  }
+
+  uploadSingle() {
+    let file = this.selectedFiles.item(0)
+    this.currentUpload = new Upload(file);
+    console.log(this.currentUpload)
+    this.firebaseService.addListing(this.currentUpload)
+  }
+  */
 
   ngOnInit() {
   }

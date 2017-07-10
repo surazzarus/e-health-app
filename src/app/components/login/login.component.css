@@ -5,18 +5,20 @@
 }
 
 #fb {
+  border: 1px solid #3B5998;
   background: #3B5998 url('/assets/img/facebook.svg') no-repeat 14px -3px;
   background-size: 47px;
   color: #fff;
 }
 
 #google {
-  border: 1px solid #95989A;
+  border: 1px solid #D4D4D4;
   background: #fff url('/assets/img/google.svg') no-repeat 25px;
   background-size: 25px;
 }
 
 #email {
+  border: 1px solid #D4D4D4;
   background: #ECECEC url('/assets/img/email.svg') no-repeat 25px;
   background-size: 25px;
 }

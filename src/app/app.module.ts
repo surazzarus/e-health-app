@@ -35,6 +35,9 @@ import { AddNewsComponent } from './components/add-news/add-news.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { LoginEmailComponent } from './components/login-email/login-email.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { NutritionsComponent } from './components/nutritions/nutritions.component';
+import { AddNutritionComponent } from './components/add-nutrition/add-nutrition.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -48,7 +51,10 @@ const appRoutes: Routes = [
   {path: 'news', component: NewsComponent, canActivate: [AuthGuard]},
   {path: 'add-news', component: AddNewsComponent},
   {path: 'blog', component: BlogComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
+  {path: 'nutritions', component: NutritionsComponent, canActivate: [AuthGuard]},
+  {path: 'add-nutrition', component: AddNutritionComponent, canActivate: [AuthGuard]},
 ]
 
 @NgModule({
@@ -66,7 +72,10 @@ const appRoutes: Routes = [
     AddNewsComponent,
     BlogComponent,
     LoginEmailComponent,
-    ProfileComponent
+    ProfileComponent,
+    WelcomeComponent,
+    NutritionsComponent,
+    AddNutritionComponent
   ],
   imports: [
     BrowserModule,

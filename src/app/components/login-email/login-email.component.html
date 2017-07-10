@@ -4,12 +4,19 @@
 
     <span class="error" *ngIf="error" @fallIn>{{ error }}</span>
 
-    <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-
-      <input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="txt" required>
-      <input type="password" placeholder="Password" (ngModel)="password" name="password" class="txt" required>
-
+    <form #formData='ngForm' (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="Email address.." [(ngModel)]="email" name="email" class="txt" required>
+      <input type="password" placeholder="Password" [(ngModel)]="password" name="password" class="txt" required>
       <button type="submit" [disabled]="!formData.valid" class="basic-btn">Log in</button>
       <a routerLink="/signup" class="alc">Don't have an account?</a>
-  </form>
+    </form>
+
+    <!--
+    <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+      <input type="text" placeholder="Email address.." name="email" class="txt" required>
+      <input type="password" placeholder="Password" name="password" class="txt" required>
+      <button type="submit" [disabled]="!formData.valid" class="basic-btn">Log in</button>
+      <a routerLink="/signup" class="alc">Don't have an account?</a>
+    </form>
+    -->
 </div>

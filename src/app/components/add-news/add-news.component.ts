@@ -11,6 +11,8 @@ export class AddNewsComponent implements OnInit {
   siteUrl: any;
   title: any;
   desc: any;
+  date: any = new Date();
+  createdAt: any = this.date.getTime();
 
   constructor(private firebaseService: FirebaseService, private router: Router) { }
 
@@ -18,12 +20,15 @@ export class AddNewsComponent implements OnInit {
     let news = {
       siteUrl: this.siteUrl,
       title: this.title,
-      desc: this.desc
+      desc: this.desc,
+      createdAt: this.createdAt
     }
+
+    console.log(news)
 
     this.firebaseService.addNews(news);
 
-    this.router.navigate(['news']);
+    this.router.navigate(['/news']);
   }
 
   ngOnInit() {

@@ -1,36 +1,40 @@
-<div *ngIf="listing">
-  <h2 class="page-header">{{listing.title}} <small>{{listing.city}}</small></h2>
-  <div class="row">
-    <div class="col-md-8">
-      <video *ngIf="videoUrl" id="{{id}}"
-        class="video-js moo-css my-custom-skin vjs-default-skin vjs-big-play-centered vjs-16-9"
-        controls
-        preload="auto"
-      >
-        <source src="{{listing.url}}" type="video/mp4">
-      </video>
-      <!--
-      <video controls class="img-fluid">
-        <source src="{{listing.url}}" type="video/mp4">
-        Your browser does not support HTML5 video.
-      </video>
-    -->
-      <!--
-        <img style="width: 100%" class="thubmbnail" src="{{imageUrl}}">
-      -->
+<div class="container">
 
-    </div>
-    <div class="col-md-4">
-      <ul class="list-group">
-        <li class="list-group-item"><strong>Model: </strong>  {{listing.owner}}</li>
-        <li class="list-group-item"><strong>Description: </strong>  {{listing.desc}}</li>
-      </ul>
-    </div>
-    <!--
-    <a [routerLink]="['/edit-listing/'+listing.$key]" class="btn btn-default">Edit</a>
-    <a (click)="onDeleteClick()" class="btn btn-danger">Delete</a>
-    -->
+      <div *ngIf="listing">
+        <h2 class="page-header">{{listing.title}} <small>{{listing.city}}</small></h2>
+        <div class="row" *ngIf="videoUrl">
+          <div class="col-md-8">
+            <video *ngIf="videoUrl" id="{{id}}"
+              class="video-js moo-css my-custom-skin vjs-default-skin vjs-big-play-centered vjs-16-9"
+              controls
+              preload="auto"
+            >
+              <source src="{{listing.url}}" type="video/mp4">
+            </video>
+            <!--
+            <video controls class="img-fluid">
+              <source src="{{listing.url}}" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+          -->
+            <!--
+              <img style="width: 100%" class="thubmbnail" src="{{imageUrl}}">
+            -->
+
+          </div>
+          <div class="col-md-4">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Model: </strong>  {{listing.owner}}</li>
+              <li class="list-group-item"><strong>Description: </strong>  {{listing.desc}}</li>
+            </ul>
+          </div>
+          <!--
+          <a [routerLink]="['/edit-listing/'+listing.$key]" class="btn btn-default">Edit</a>
+          <a (click)="onDeleteClick()" class="btn btn-danger">Delete</a>
+          -->
+        </div>
+        <br/>
+        <a class="btn btn-primary" [routerLink]="['/listings']">GO BACK</a>
+      </div>
+
   </div>
-  <br/>
-  <a class="btn btn-primary" [routerLink]="['/listings']">GO BACK</a>
-</div>

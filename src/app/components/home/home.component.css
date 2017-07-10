@@ -1,0 +1,186 @@
+h1, h2, h3, h4, h5 {
+  font-weight: 200;
+}
+
+header {
+  margin-top: -24px;
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  overflow-y: hidden;
+  background: url(/assets/img/bg-pattern.png), #424242;
+  background: url(/assets/img/bg-pattern.png), -webkit-linear-gradient(to left, #424242, #9E9E9E);
+  background: url(/assets/img/bg-pattern.png), linear-gradient(to left, #424242, #9E9E9E);
+  color: #fff;
+}
+
+.header-content-inner {
+  margin-top: 200px;
+}
+
+@media(max-width: 991px) {
+  .header-content-inner {
+    margin-top: 50px;
+  }
+}
+
+@media(max-width: 767px) {
+  .header-content-inner h2, p {
+    text-align: center;
+  }
+  .header-content-inner .btn-xl {
+    display: block;
+    width: 250px;
+    margin: 0 auto !important;
+  }
+}
+
+.btn-xl {
+  padding: 15px 45px;
+  font-size: 11px;
+}
+
+.btn-xl:hover {
+  background: #717171;
+}
+
+.btn {
+  border-radius: 300px;
+}
+
+.btn-outline {
+  color: #fff;
+  border: 1px solid;
+}
+
+.btn, .navbar-default .nav>li>a {
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.device-mockup.iphone6_plus, .device-mockup.iphone6_plus.portrait {
+  margin-top: 45px;
+  padding-bottom: 201.76%;
+}
+
+@media(max-width: 767px) {
+  .device-mockup.iphone6_plus, .device-mockup.iphone6_plus.portrait {}
+}
+
+.device-mockup.iphone6_plus.portrait.white>.device, .device-mockup.iphone6_plus.white>.device {
+  background-image: url(/assets/img/iphone_6_plus_white_port.png);
+}
+
+.device-mockup {
+  position: relative;
+  width: 100%;
+  padding-bottom: 61.775701%;
+}
+
+.device-mockup>.device {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.device-mockup.iphone6_plus.portrait>.device>.screen, .device-mockup.iphone6_plus>.device>.screen {
+  top: 11.58%;
+  bottom: 11.58%;
+  left: 5.97%;
+  right: 5.97%;
+}
+
+.device-mockup>.device>.screen {
+  position: absolute;
+  top: 11.0438729%;
+  bottom: 14.6747352%;
+  left: 13.364486%;
+  right: 13.364486%;
+  overflow: hidden;
+}
+
+
+/* Section: Download */
+
+section.download {
+  margin-top: -300px;
+  padding: 150px 0;
+  position: relative;
+}
+
+@media(max-width: 991px) {
+  section.download {
+    margin-top: -200px;
+  }
+}
+
+@media(max-width: 767px) {
+  section.download {
+    margin-top: -300px;
+  }
+}
+
+.bg-primary {
+  background: #fdcc52;
+  background: -webkit-linear-gradient(#fdcc52, #fdc539);
+  background: linear-gradient(#fdcc52, #fdc539);
+}
+
+
+/* Section: Features */
+
+.features {
+  background: #ffffff;
+}
+
+.features .feature-header {
+  margin-top: 150px;
+}
+
+.features .feature-list {
+  margin-top: 100px;
+}
+
+@media(max-width: 1199px) {
+  .features .feature-header {
+    margin-top: 80px;
+  }
+  .features .feature-list {
+    margin-top: 70px;
+  }
+}
+
+@media(max-width: 991px) {
+  .features .feature-header {
+    margin-top: 60px;
+  }
+  .features h3 {
+    font-size: 1.4rem;
+  }
+  .features .feature-list {
+    margin-top: 50px;
+  }
+}
+
+@media(max-width: 767px) {
+  .features h4 {
+    text-align: center;
+  }
+}
+
+
+/* Footer */
+
+footer {
+  background-color: #263647;
+  padding: 25px 0;
+  text-align: center;
+  color: #D4D4D4;
+}

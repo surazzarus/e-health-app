@@ -1,7 +1,7 @@
 <a [routerLink]="['/listings']">Back</a>
 <br />
 <h2 class="page-header">Add Listing</h2>
-<form (submit)="onAddSubmit()" ngNativeValidate>
+<form (submit)="onAddSubmit()" ngNativeValidate #loginForm="ngForm">
   <div class="form-group">
     <label>Title</label>
     <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
@@ -15,7 +15,24 @@
     <input class="form-control" type="text" [(ngModel)]="owner" name="owner" required>
   </div>
   <div class="form-group">
-    <input id="image" name="image" [(ngModel)]="image" type="file" >
+    <input id="image" name="image" [(ngModel)]="image" type="file">
   </div>
-  <input type="submit" value="submit" class="btn btn-success">
+
+<!--
+  <div *ngIf="currentUpload">
+  <div class="progress">
+    <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+  </div>
+  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+</div>
+
+  <button
+
+            (click)="uploadSingle()">
+
+      Upload Single
+    </button>
+  -->
+
+  <input type="submit" [disabled]="!loginForm.valid" value="submit" class="btn btn-success">
 </form>

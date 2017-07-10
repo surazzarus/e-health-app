@@ -1,31 +1,22 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
-  error: any;
+  public authState$: Observable<firebase.User>;
 
-  constructor(public afAuth: AngularFireAuth, private router: Router) { }
-
-  getAuthenticated() {
-    return firebase.auth().currentUser;
+  constructor(public afAuth: AngularFireAuth) {
+    this.authState$ = afAuth.authState;
   }
 
-/*
-  signup(email: string, password: string) {
-    this.afAuth
-      .auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(value => {
-        console.log('Success!', value);
-        this.router.navigate(['/listings'])
-      })
-      .catch(err => {
-        console.log('Something went wrong:',err.message);
-        this.error = err;
-      });
+  /*
+  getAuthenticated() {
+    console.log(firebase.auth())
+    console.log(this.afAuth.authState)
+    return firebase.auth().currentUser;
   }
   */
 

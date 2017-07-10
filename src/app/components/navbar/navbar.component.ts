@@ -13,12 +13,16 @@ import {Router} from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  user: Observable<firebase.User>;
+
   constructor(
     private firebaseService: FirebaseService,
     public afAuth: AngularFireAuth,
     public flashMessage: FlashMessagesService,
     private router: Router
-  ) { }
+  ) {
+    this.user = afAuth.authState;
+  }
 
   logout() {
     this.afAuth.auth.signOut();
