@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+    <div *ngIf="name">
+      <div>
+        <h4>Hello! {{name}}</h4>
+        <p>Please select the options below you would like to foucs on.</p>
+      </div>
+
+      <form>
+        <div class="form-check">
+          <p *ngFor="let option of options">
+            <label class="form-check-label">
+              <input type="checkbox" value="{{option.value}}" [(ngModel)]="option.checked" name="option" class="form-check-input">
+              {{option.label}}
+            </label>
+          </p>
+        </div>
+        <button type="button" [disabled]="buttonState()" class="btn btn-primary" data-toggle="modal" data-target="#confirmModel">Submit</button>
+      </form>
+
+      <div class="modal fade" id="confirmModel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Your selection has been saved</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Based on the options you have selected, we will provide you the possible exercises and tips required.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSaveChanges()">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

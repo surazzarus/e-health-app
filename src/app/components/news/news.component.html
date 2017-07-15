@@ -1,21 +1,25 @@
-<div *ngIf="news" class="container">
-  <div class="row my-flex-card justify-content-center">
-    <div class="col-md-5 m-1" *ngFor="let new of news|slice:0:show let i=index">
-      <div class="card">
-        <a target="_blank" href="{{new.siteUrl}}">
-          <img class="card-img-top img-fluid" src="{{new.url}}" alt="">
-          <h5 class="card-title px-4 pt-4">{{new.title}}</h5>
-        </a>
-          <div class="card-block">
-            <p class="card-text news-desc">{{new.desc}}</p>
+<div class="container">
+    <div class="row">
+      <div *ngIf="news" class="container">
+        <div class="row my-flex-card justify-content-center">
+          <div class="col-md-5 m-1" *ngFor="let new of news|slice:0:show let i=index">
+            <div class="card">
+              <a target="_blank" href="{{new.siteUrl}}">
+                <img class="card-img-top img-fluid" src="{{new.url}}" alt="">
+                <h5 class="card-title px-4 pt-4">{{new.title}}</h5>
+              </a>
+                <div class="card-block">
+                  <p class="card-text news-desc">{{new.desc}}</p>
+                </div>
+            </div>
           </div>
+        </div>
+        <div class="text-center">
+          <img [hidden]="show >= allnews" id="loadMore" src="assets/img/more.png" (click)="show = show + 6">
+        </div>
       </div>
     </div>
   </div>
-  <div class="text-center">
-    <img [hidden]="show >= allnews" id="loadMore" src="assets/img/more.png" (click)="show = show + 6">
-  </div>
-</div>
 
 <!--
     <div class="col-md-5 m-1">

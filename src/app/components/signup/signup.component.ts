@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../../services/auth.service';
+import {AuthService} from '../../shared/services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import {moveIn, fallIn} from '../../router.animations';
+import { User } from '../../shared/models/user';
 
 @Component({
   selector: 'app-signup',
@@ -13,8 +14,11 @@ import {moveIn, fallIn} from '../../router.animations';
   animations: [moveIn(), fallIn()]
 })
 export class SignupComponent implements OnInit {
-  email: any;
-  password: any;
+
+  users: FirebaseListObservable<User[]>;
+  name: string;
+  email: string;
+  password: string;
   state: string = '';
   error: any;
 
@@ -22,17 +26,38 @@ export class SignupComponent implements OnInit {
     public afAuth: AngularFireAuth,
     private authService: AuthService,
     private router: Router,
-    db: AngularFireDatabase
-  ) { }
+    private db: AngularFireDatabase
+  ) {
+    this.users = this.db.list('/users') as FirebaseListObservable<User[]>;
+
+    console.log(this.users)
+
+
+  }
 
   onSubmit() {
-
       this.afAuth.auth.createUserWithEmailAndPassword(this.email, this.password)
-        .then((success) => {
-        //console.log(success);
+        .then((data) => {
+          let currentUserUid = this.afAuth.auth.currentUser.uid; // Get current user 'id'
+          // Overwriting auto generated keys with 'currentUserUid', so that we can use that id to add more collections later on
+          this.db.object(`users/${currentUserUid}`).update({
+            name: this.name,
+            email: data.email // Getting email from 'createUserWithEmailAndPassword' method
+          })
+        /*
+        this.users.push({
+          name: this.name,
+          username: this.username,
+          // Getting email from 'createUserWithEmailAndPassword' method
+          email: data.email
+        })
+        */
 
-        ///// Send Email to the registered users /////
-        let user:any = firebase.auth().currentUser;
+        this.router.navigate(['/welcome'])
+        console.log(data.email);
+
+        ///// Send Email to user after registration is done /////
+        let user:any = firebase.auth().currentUser; // Get current user
            user.sendEmailVerification().then(
              (success) => {console.log("please verify your email")}
            ).catch(
@@ -41,7 +66,6 @@ export class SignupComponent implements OnInit {
              }
            )
 
-        this.router.navigate(['/welcome'])
       }).catch(
         (err) => {
         console.log(err);

@@ -128,9 +128,9 @@ section.download {
 }
 
 .bg-primary {
-  background: #fdcc52;
-  background: -webkit-linear-gradient(#fdcc52, #fdc539);
-  background: linear-gradient(#fdcc52, #fdc539);
+  background: #FFD200;
+  background: linear-gradient(-45deg, #FFD200 20%, #F7971E 80%);
+  background: -webkit-linear-gradient(-45deg, #FFD200 20%, #F7971E 80%);
 }
 
 
@@ -145,7 +145,7 @@ section.download {
 }
 
 .features .feature-list {
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 @media(max-width: 1199px) {
@@ -159,20 +159,19 @@ section.download {
 
 @media(max-width: 991px) {
   .features .feature-header {
-    margin-top: 60px;
+    margin-top: 30px;
   }
   .features h3 {
     font-size: 1.4rem;
   }
   .features .feature-list {
-    margin-top: 50px;
+    margin-top: 30px;
   }
 }
 
-@media(max-width: 767px) {
-  .features h4 {
-    text-align: center;
-  }
+.features h4, p, .fa {
+  display: block;
+  text-align: center;
 }
 
 

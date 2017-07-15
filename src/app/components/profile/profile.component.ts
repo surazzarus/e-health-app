@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FirebaseService} from '../../services/firebase.service';
+import {FirebaseService} from '../../shared/services/firebase.service';
+import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import {Router} from '@angular/router';
@@ -10,43 +11,34 @@ import {Router} from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  name: any;
+  name: string;
 
-  checkboxes:any = [
-    {label: "I'd like to be fitter."},
-    {label: "I am often tired and exhausted."},
-    {label: "I have trouble concentrating."},
-    {label: "I find it difficult to motivate myself."},
-    {label: "I'm often stressed and tensed."},
-    {label: "I'd like to loose some weight."},
-    {label: "I'd like to be gain some muscles."}
-  ]
+  constructor(
+    public afAuth: AngularFireAuth,
+    private router: Router,
+    private db: AngularFireDatabase
+  ) {
+    // Get Current User
+    let currentUserUid = this.afAuth.auth.currentUser.uid; // Get 'currentUserUid'
+    this.db.object(`users/${currentUserUid}`).subscribe(user =>{
+      this.name = user.name;
+    })
 
-  constructor(public afAuth: AngularFireAuth, private router: Router) {
-    // shows the name
+    /*
+    // Displaying current name
     this.afAuth.authState.subscribe(user => {
       //console.log(auth)
       if(user) {
-        /* Show display name OR only name before '@' in email */
+        /// Show display name OR only name before '@' in email ////
         this.name = user.displayName || user.email.split('@')[0];
         //console.log(user.uid);
       }
     })
-  }
-
-  buttonState() {
-   return !this.checkboxes.some(_ => _.state);
-  }
-
-  bodyParts(parts) {
-    console.log(parts);
-  }
-
-  onSaveChanges() {
-    this.router.navigate(['listings']);
+    */
   }
 
   ngOnInit() {
+
   }
 
 }

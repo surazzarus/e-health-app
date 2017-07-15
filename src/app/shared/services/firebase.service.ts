@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import * as firebase from 'firebase';
+import { Observable } from 'rxjs/Observable';
+import { Listing } from '../models/listing';
+import { News } from '../models/news';
+import { Nutrition } from '../models/nutrition';
 
 @Injectable()
 export class FirebaseService {
@@ -17,7 +21,7 @@ export class FirebaseService {
   constructor(private db: AngularFireDatabase) {
     this.folder = 'listingimages';
     this.newsFolder = 'newsimages';
-    this.nutritionsFolder = 'nutritionsimages'
+    this.nutritionsFolder = 'nutritionsimages';
     this.listings = this.db.list('/listings', {
       query: {
         // We can use query if needed
@@ -33,23 +37,38 @@ export class FirebaseService {
     this.nutritions = this.db.list('/nutritions') as FirebaseListObservable<Nutrition[]>;
   }
 
-  getListings() {
+  /**
+   * Get all listings
+   */
+  getListings(): FirebaseListObservable<Listing[]> {
     return this.listings;
   }
 
-  getNews() {
+  /**
+   * Get all news
+   */
+  getNews(): FirebaseListObservable<News[]> {
     return this.news;
   }
 
-  getNutritions() {
+  /**
+   * Get all nutritions
+   */
+  getNutritions(): FirebaseListObservable<Nutrition[]> {
     return this.nutritions;
   }
 
-  getListingDetails(id) {
+  /**
+   * Get single listing
+   */
+  getListingDetails(id): FirebaseObjectObservable<Listing> {
     this.listing = this.db.object('/listings/'+id) as FirebaseObjectObservable<Listing>;
     return this.listing;
   }
 
+  /**
+   * Add single listing
+   */
   addListing(listing) {
 
     // Create root ref
@@ -64,7 +83,7 @@ export class FirebaseService {
           listing.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         },
       (error) => {
-        // upload failed
+        // If upload failed
         console.log(error)
       }
 
@@ -126,33 +145,4 @@ export class FirebaseService {
   getImages() {
     return this.listings;
   }
-
-}
-
-interface Listing {
-    $key?: string;
-    title?: string;
-    image?: string;
-    owner?: string;
-    createdAt?: any;
-    file: File;
-    progress: number;
-    desc?: string;
-    url?: string;
-}
-
-interface News {
-  $key?: string;
-  siteUrl?: string;
-  title?: string;
-  desc?: string;
-  path?: string;
-  createdAt?: any;
-}
-
-interface Nutrition {
-  $key?: string;
-  title?: string;
-  desc?: string;
-  createdAt?: any;
 }

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import {FirebaseService} from '../../services/firebase.service';
+import {FirebaseService} from '../../shared/services/firebase.service';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import * as firebase from 'firebase';
 
@@ -41,7 +41,7 @@ export class ListingComponent implements AfterViewInit, OnInit, OnDestroy {
 
       /////// Image part ///////
       /* Don't need the lower code if we use "snapshot.downloadURL;" on service */
-      
+
       /*
       let storageRef = firebase.storage().ref();
       let spaceRef = storageRef.child(listing.path);

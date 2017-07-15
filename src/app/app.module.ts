@@ -14,11 +14,11 @@ import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable 
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // Services
-import {FirebaseService} from './services/firebase.service';
-import {AuthService} from './services/auth.service';
+import {FirebaseService} from './shared/services/firebase.service';
+import {AuthService} from './shared/services/auth.service';
 
 // Guards
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 // Components
 import { AppComponent } from './app.component';
@@ -38,6 +38,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { NutritionsComponent } from './components/nutritions/nutritions.component';
 import { AddNutritionComponent } from './components/add-nutrition/add-nutrition.component';
+import { SurveyComponent } from './components/survey/survey.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -53,8 +54,10 @@ const appRoutes: Routes = [
   {path: 'blog', component: BlogComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
+  {path: 'survey', component: SurveyComponent, canActivate: [AuthGuard]},
   {path: 'nutritions', component: NutritionsComponent, canActivate: [AuthGuard]},
   {path: 'add-nutrition', component: AddNutritionComponent, canActivate: [AuthGuard]},
+
 ]
 
 @NgModule({
@@ -75,7 +78,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     WelcomeComponent,
     NutritionsComponent,
-    AddNutritionComponent
+    AddNutritionComponent,
+    SurveyComponent
   ],
   imports: [
     BrowserModule,
