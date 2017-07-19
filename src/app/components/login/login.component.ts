@@ -68,6 +68,7 @@ export class LoginComponent implements OnInit {
                 email: data.user.email,
                 name: data.user.displayName
               });
+              console.log('New data info added to database');
               /*
               this.users.push({
                 email: data.user.email,

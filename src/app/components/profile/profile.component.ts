@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   name: string;
+  surveys: string[];
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -21,8 +22,10 @@ export class ProfileComponent implements OnInit {
     // Get Current User
     let currentUserUid = this.afAuth.auth.currentUser.uid; // Get 'currentUserUid'
     this.db.object(`users/${currentUserUid}`).subscribe(user =>{
-      this.name = user.name;
+      this.name = user.name; // get current user's name
+      this.surveys = user.survey; // get current user's survey options
     })
+
 
     /*
     // Displaying current name

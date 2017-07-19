@@ -1,20 +1,28 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <a [routerLink]="['/nutritions']">Back</a>
-      <br />
-      <h2 class="page-header">Add Nutrition</h2>
-      <form (submit)="onNutritionSubmit()" ngNativeValidate>
+      <flash-messages></flash-messages>
+      <router-outlet></router-outlet>
+      <h2 class="page-header">Add Blog</h2>
+      <form (submit)="onBlogSubmit()" ngNativeValidate>
         <div class="form-group">
           <label>Title</label>
           <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
+        </div>
+        <div class="form-group">
+          <label>Author</label>
+          <input class="form-control" type="text" [(ngModel)]="author" name="auther" required>
+        </div>
+        <div class="form-group">
+          <label>Date</label>
+          <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="currentDate" required></my-date-picker>
         </div>
         <div class="form-group">
           <label for="exampleTextarea">Description</label>
           <textarea class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="desc" name="desc" required></textarea>
         </div>
         <div class="form-group">
-          <input id="nutrition-image" name="image" type="file" >
+          <input id="blog-image" name="image" type="file" >
         </div>
         <input type="submit" value="submit" class="btn btn-success">
       </form>

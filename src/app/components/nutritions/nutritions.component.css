@@ -1,0 +1,15 @@
+.modal-title {
+  margin: 0 auto;
+}
+
+.close {
+  color: #000;
+}
+
+a {
+  color: #0f7864;
+}
+
+a:hover {
+  color: #00B591;
+}

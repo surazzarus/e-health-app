@@ -18,7 +18,7 @@ export class SurveyComponent implements OnInit, OnDestroy {
 
   options:any = [
     {label: "I'd like to be fitter.", checked: false},
-    {label: "I am often tired and exhausted.", checked: false},
+    {label: "I am unconfortable during work.", checked: false},
     {label: "I have trouble concentrating.", checked: false},
     {label: "I find it difficult to motivate myself.", checked: false},
     {label: "I'm often stressed and tensed.", checked: false},
@@ -30,14 +30,12 @@ export class SurveyComponent implements OnInit, OnDestroy {
     public afAuth: AngularFireAuth,
     private db: AngularFireDatabase,
     private router: Router) {
-    this.users = this.db.list('/users') as FirebaseListObservable<any[]>;
-    this.afAuth.authState.subscribe(user => {
-      if(user) {
-        /* Show displayName OR only name before '@' in email */
-        this.name = user.displayName || user.email.split('@')[0];
+    this.users = this.db.list('/users') as FirebaseListObservable<User[]>;
 
-        this.email = user.email;
-      }
+    // Get Current User
+    let currentUserUid = this.afAuth.auth.currentUser.uid; // Get 'currentUserUid'
+    this.db.object(`users/${currentUserUid}`).subscribe(user =>{
+      this.name = user.name; // get current user's name
     })
   }
 
@@ -63,7 +61,7 @@ export class SurveyComponent implements OnInit, OnDestroy {
     this.db.object(`users/${currentUserUid}`).update({
       survey: this.saveSelected
     });
-    this.router.navigate(['listings']);
+    this.router.navigate(['profile']);
 
     /*
     this.users.push({

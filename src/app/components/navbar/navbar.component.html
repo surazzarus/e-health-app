@@ -1,57 +1,25 @@
+<nav class="navbar navbar-toggleable-sm navbar-light fixed-top bg-primary navbar-inverse">
 
-  <nav class="navbar navbar-toggleable-sm navbar-light fixed-top bg-primary navbar-inverse">
-
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="container">
-      <a class="navbar-brand" style="color: #B4B4B4;">e-Health App</a>
+  <div class="container">
+    <a class="navbar-brand" style="color: #B4B4B4;">e-Health App</a>
 
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav mr-auto">
-          <li data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!(user | async)" class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/']">Home</a></li>
-          <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/profile']">Profile</a></li>
-          <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/blog']">Blog</a></li>
-          <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/news']">News</a></li>
-          <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/listings']">Exercises</a></li>
-          <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/nutritions']">Nutritions</a></li>
-          <!--
-          <li class="nav-item" *ngIf="(afAuth.authState | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/add-listing']">Add Listings</a></li>
-          -->
-        </ul>
-        <ul class="navbar-nav">
-          <li data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!(user | async)" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="btn btn-outline-secondary" [routerLink]="['/login']">Login</a></li>
-          <li data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!(user | async)" class="nav-item register" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="btn btn-outline-secondary" [routerLink]="['/signup']">Register</a></li>
-          <li data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="(user | async)" class="nav-item logout" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="btn btn-outline-secondary logout" (click)="logout()">Logout</a></li>
-        </ul>
-      </div>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mr-auto">
+        <li data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!(user | async)" class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/']">Home</a></li>
+        <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/profile']">Profile</a></li>
+        <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/blogs']">Blog</a></li>
+        <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/news']">News</a></li>
+        <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/listings']">Exercises</a></li>
+        <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/nutritions']">Nutritions</a></li>
+      </ul>
+      <ul class="navbar-nav">
+        <li data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!(user | async)" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="btn btn-outline-secondary" [routerLink]="['/login']">Login</a></li>
+        <li data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!(user | async)" class="nav-item register" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="btn btn-outline-secondary" [routerLink]="['/signup']">Register</a></li>
+        <li data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="(user | async)" class="nav-item logout" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="btn btn-outline-secondary logout" (click)="logout()">Logout</a></li>
+      </ul>
     </div>
-  </nav>
-
-
-<!--
-<nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" [routerLink]="['/']">e-Health World</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-left">
-            <li><a [routerLink]="['/']">Home</a></li>
-            <li *ngIf="(afAuth.authState | async)"><a [routerLink]="['/listings']">Listings</a></li>
-            <li *ngIf="(afAuth.authState | async)"><a [routerLink]="['/add-listing']">Add Listings</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li *ngIf="!(afAuth.authState | async)"><a [routerLink]="['/login']">Login</a></li>
-            <li *ngIf="(afAuth.authState | async)"><a class="btn" (click)="logout()">Logout</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  -->
+  </div>
+</nav>

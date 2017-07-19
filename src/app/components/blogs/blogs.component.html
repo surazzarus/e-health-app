@@ -1,0 +1,15 @@
+<div *ngIf="blogs">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 blog-info" *ngFor="let blog of blogs">
+        <a routerLink = '/blog/{{blog.$key}}'>
+          <img src="{{blog.url}}" alt="">
+          <div class="blog-details">
+            <h5>{{blog.title}}</h5>
+            <p>{{blog.currentDate.formatted}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

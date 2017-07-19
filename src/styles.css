@@ -8,6 +8,14 @@ body {
   /*font-family: Catamaran, Helvetica, Arial, sans-serif; */
 }
 
+h1, h2, h3, h4, h5 {
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none !important;
+}
+
 .form-container {
   background: white;
   padding: 2em;
@@ -219,6 +227,10 @@ h2 {
   }
 }
 
+.btn {
+  cursor: pointer;
+}
+
 
 /* Bootstrap Cards */
 
@@ -285,3 +297,27 @@ h2 {
   max-width: 600px;
   margin: 30px auto;
 }
+
+
+/* Materialized overwrite */
+
+
+/*
+.profile-md-btn {
+  bottom: 45px;
+  right: 24px;
+}
+
+.btn-large {
+  border-radius: 35px;
+  position: relative;
+}
+
+.tap-target-origin {
+  border-radius: 35px;
+}
+
+.card {
+  border: 0;
+}
+*/

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../../shared/services/firebase.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { Nutrition } from '../../shared/models/nutrition';
 
 @Component({
   selector: 'app-nutritions',
@@ -9,15 +10,16 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./nutritions.component.css']
 })
 export class NutritionsComponent implements OnInit {
-  nutrition: any;
+  nutritions: Nutrition[];
 
   constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
     this.firebaseService.getNutritions()
-      .subscribe(nutrition => {
+      .subscribe(nutritions => {
         //console.log(news);
-        this.nutrition = nutrition;
+        this.nutritions = nutritions;
+        console.log(typeof(nutritions))
       })
   }
 

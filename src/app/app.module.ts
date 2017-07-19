@@ -2,11 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {RouterModule, Routes} from '@angular/router';
-import {FlashMessagesModule} from 'angular2-flash-messages';
+import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
+
+// 3rd party modules
+import { FlashMessagesModule } from 'angular2-flash-messages';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MyDatePickerModule } from 'mydatepicker';
+import { StarRatingModule } from 'angular-star-rating';
 
 // Firebase and angularfire modules
 import { AngularFireModule } from 'angularfire2';
@@ -39,6 +43,10 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { NutritionsComponent } from './components/nutritions/nutritions.component';
 import { AddNutritionComponent } from './components/add-nutrition/add-nutrition.component';
 import { SurveyComponent } from './components/survey/survey.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AddBlogComponent } from './components/add-blog/add-blog.component';
+import { BlogsComponent } from './components/blogs/blogs.component';
+import { NutritionComponent } from './components/nutrition/nutrition.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -51,12 +59,15 @@ const appRoutes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'news', component: NewsComponent, canActivate: [AuthGuard]},
   {path: 'add-news', component: AddNewsComponent},
-  {path: 'blog', component: BlogComponent},
+  {path: 'blogs', component: BlogsComponent},
+  {path: 'blog/:id', component: BlogComponent},
+  {path: 'add-blog', component: AddBlogComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
   {path: 'survey', component: SurveyComponent, canActivate: [AuthGuard]},
   {path: 'nutritions', component: NutritionsComponent, canActivate: [AuthGuard]},
   {path: 'add-nutrition', component: AddNutritionComponent, canActivate: [AuthGuard]},
+  {path: '**', component: PageNotFoundComponent}
 
 ]
 
@@ -79,7 +90,11 @@ const appRoutes: Routes = [
     WelcomeComponent,
     NutritionsComponent,
     AddNutritionComponent,
-    SurveyComponent
+    SurveyComponent,
+    PageNotFoundComponent,
+    AddBlogComponent,
+    BlogsComponent,
+    NutritionComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +106,9 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MyDatePickerModule,
+    StarRatingModule.forRoot()
   ],
   providers: [FirebaseService, AngularFireDatabase, AuthService, AuthGuard],
   bootstrap: [AppComponent]

@@ -1,13 +1,37 @@
 <div class="container">
     <div class="row">
-      <div *ngIf="name">
-          <h4>Hello! {{name}}</h4>
-          <p>Feel free to check the available videos and exercises you prefer. There are tons of recources that you could take benefit of. Please stay tuned for more new materials. Thank you</p>
+      <div class="col-sm-12">
+        <div *ngIf="name">
+            <h4>Hello! {{name}}</h4>
+            <p>Feel free to check the available videos and exercises you prefer. There are tons of recources that you could take benefit of. Please stay tuned for more new materials.</p>
+
+            <hr/>
+        </div>
+        <div *ngIf="surveys">
+          <h5>My Focus</h5>
+          <p *ngFor="let survey of surveys" class="text-info">
+            {{survey}} <i class="fa fa-check" aria-hidden="true"></i>
+          </p>
+        </div>
       </div>
   </div>
 </div>
 
+<!-- Tap Target from Materialize -->
+<!--
+<div class="fixed-action-btn profile-md-btn">
+  <a id="menu" onclick="$('.tap-target').tapTarget('open')" class="waves-effect waves-light btn btn-floating btn-large">
+    <i class="material-icons" style="position:absolute; top:0;left:0;">menu</i>
+  </a>
+</div>
 
+<div class="tap-target #263238 blue-grey darken-1" data-activates="menu">
+  <div class="tap-target-content white-text">
+    <h5>Tap Trget conent</h5>
+    <p class="white-text">This is tap target content.</p>
+  </div>
+</div>
+-->
 
 
 <!--

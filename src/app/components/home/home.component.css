@@ -1,5 +1,5 @@
 h1, h2, h3, h4, h5 {
-  font-weight: 200;
+  font-weight: 300;
 }
 
 header {
@@ -46,6 +46,9 @@ header {
 
 .btn {
   border-radius: 300px;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .btn-outline {
@@ -53,29 +56,18 @@ header {
   border: 1px solid;
 }
 
-.btn, .navbar-default .nav>li>a {
-  font-family: Lato, Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.device-mockup.iphone6_plus, .device-mockup.iphone6_plus.portrait {
+.device-mockup.iphone6_plus {
   margin-top: 45px;
   padding-bottom: 201.76%;
 }
 
-@media(max-width: 767px) {
-  .device-mockup.iphone6_plus, .device-mockup.iphone6_plus.portrait {}
-}
-
-.device-mockup.iphone6_plus.portrait.white>.device, .device-mockup.iphone6_plus.white>.device {
+.device-mockup.iphone6_plus .device {
   background-image: url(/assets/img/iphone_6_plus_white_port.png);
 }
 
 .device-mockup {
   position: relative;
   width: 100%;
-  padding-bottom: 61.775701%;
 }
 
 .device-mockup>.device {
@@ -90,7 +82,7 @@ header {
   background-repeat: no-repeat;
 }
 
-.device-mockup.iphone6_plus.portrait>.device>.screen, .device-mockup.iphone6_plus>.device>.screen {
+.device-mockup.iphone6_plus>.device>.screen {
   top: 11.58%;
   bottom: 11.58%;
   left: 5.97%;

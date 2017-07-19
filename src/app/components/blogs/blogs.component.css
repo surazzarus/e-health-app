@@ -1,0 +1,38 @@
+.blog-info {
+  margin-top: 10px;
+}
+
+.blog-info {
+  transition: transform 0.3s;
+}
+
+.blog-info:hover {
+  transform: scale(1.01, 1.01);
+}
+
+img {
+  width: 100%;
+  position: relative;
+  filter: brightness(50%);
+  cursor: pointer;
+}
+
+.blog-details {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.blog-details:hover {
+  text-decoration: none;
+  color: #20A375;
+}
+
+.blog-details h3 {
+  text-transform: uppercase;
+}
