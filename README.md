@@ -1,28 +1,39 @@
-# Ng2FirebaseAuth
+<p align="center">
+  <img src="https://github.com/surazzarus/e-health-app/blob/master/src/assets/icons/android-chrome-192x192.png">
+</p>
+<p align="center">Progressive eHealth App built with Angular and firebase</p>
+<p align="center"><a target="_blank" href="https://e-health-app.firebaseapp.com">View App</a></p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
+<hr>
 
-## Development server
+<strong>Responsive</strong>: Completely responsive UI that can be installed to your mobile home screen to provide a native feel.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<strong>Manifest</strong>
+<p>With Chromium based browsers for Android (Chrome, Opera, etc...), this app includes a Web App Manifest that allows you to install to your homescreen.</p>
 
-## Code scaffolding
+<p align="center">
+  <img src="https://github.com/surazzarus/e-health-app/blob/master/src/assets/img/home-screen-with-mobile.jpg">
+</p>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+<p align="center">
+  <img src="https://github.com/surazzarus/e-health-app/blob/master/src/assets/img/app-screenshot-with-mobile.jpg">
+</p>
 
-## Build
+<hr>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+<h2>Build process</h2>
+<ul>
+<li>Clone or download the repo</li>
+<li>npm install</li>
+<li>ng serve</li>
+</ul>
 
-## Running unit tests
+<hr>
+<h3>Tools used</h3>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+<ul>
+<li>bootstrap 4</li>
+<li>angular</li>
+<li>firebase</li>
+<li>angularfire2</li>
+</ul>
