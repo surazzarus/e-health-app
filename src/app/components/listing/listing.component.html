@@ -24,8 +24,8 @@
           </div>
           <div class="col-md-4">
             <ul class="list-group">
-              <li class="list-group-item"><strong>Model: </strong>  {{listing.owner}}</li>
-              <li class="list-group-item"><strong>Description: </strong>  {{listing.desc}}</li>
+              <li class="list-group-item"><p><strong>Source: </strong>  {{listing.owner}}</p></li>
+              <li class="list-group-item"><p><strong>Description: </strong>  {{listing.desc}}</p></li>
             </ul>
             <br/>
             <h5 class="text-center">Rate this video</h5>
@@ -38,6 +38,7 @@
         </div>
         <br/>
         <a class="btn btn-primary" [routerLink]="['/listings']">GO BACK</a>
+        <br/>
       </div>
 
   </div>

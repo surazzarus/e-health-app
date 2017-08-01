@@ -1,21 +1,27 @@
-<a [routerLink]="['/news']">Back</a>
-<br />
-<h2 class="page-header">Add News</h2>
-<form (submit)="onNewsSubmit()" ngNativeValidate>
-  <div class="form-group">
-    <label>Site Url</label>
-    <input class="form-control" type="text" [(ngModel)]="siteUrl" name="siteUrl" required>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <flash-messages></flash-messages>
+      <router-outlet></router-outlet>
+        <h2 class="page-header">Add News</h2>
+        <form (submit)="onNewsSubmit()" ngNativeValidate>
+          <div class="form-group">
+            <label>Site Url</label>
+            <input class="form-control" type="text" [(ngModel)]="siteUrl" name="siteUrl" required>
+          </div>
+          <div class="form-group">
+            <label>Title</label>
+            <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleTextarea">Description</label>
+            <textarea class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="desc" name="desc" required></textarea>
+          </div>
+          <div class="form-group">
+            <input id="news-image" name="image" type="file" >
+          </div>
+          <input type="submit" value="submit" class="btn btn-success">
+        </form>
+      </div>
   </div>
-  <div class="form-group">
-    <label>Title</label>
-    <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
-  </div>
-  <div class="form-group">
-    <label for="exampleTextarea">Description</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="desc" name="desc" required></textarea>
-  </div>
-  <div class="form-group">
-    <input id="news-image" name="image" type="file" >
-  </div>
-  <input type="submit" value="submit" class="btn btn-success">
-</form>
+</div>

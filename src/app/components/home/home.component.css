@@ -42,6 +42,8 @@ header {
 
 .btn-xl:hover {
   background: #717171;
+  border-color: #717171;
+  opacity: 0.7;
 }
 
 .btn {
@@ -120,9 +122,9 @@ section.download {
 }
 
 .bg-primary {
-  background: #FFD200;
-  background: linear-gradient(-45deg, #FFD200 20%, #F7971E 80%);
-  background: -webkit-linear-gradient(-45deg, #FFD200 20%, #F7971E 80%);
+  background: #799063;
+  background: linear-gradient(-45deg, #799063 20%, #2C3E50 80%);
+  background: -webkit-linear-gradient(-45deg, #799063 20%, #2C3E50 80%);
 }
 
 
@@ -171,7 +173,7 @@ section.download {
 
 footer {
   background-color: #263647;
-  padding: 25px 0;
+  padding: 35px 0;
   text-align: center;
   color: #D4D4D4;
 }

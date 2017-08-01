@@ -20,29 +20,31 @@ export class FirebaseService {
   newsFolder: any;
   nutritionsFolder: any;
   blogsFolder: any;
+  thumbnailFolder: any;
 
   iRef: firebase.storage.UploadTask;
 
   constructor(private db: AngularFireDatabase) {
     this.folder = 'listingimages';
     this.newsFolder = 'newsimages';
+    this.thumbnailFolder = 'thumbnails'
     this.nutritionsFolder = 'nutritionsimages';
     this.blogsFolder = 'blogImages';
 
-    this.listings = this.db.list('/listings', {
-      query: {
-        // We can use query if needed
-        /*
-        limitToLast: 10,
-        orderByKey: true
-        */
-      }
+    // listing Videos
+    this.listings = this.db.list('/listings').map(arr => {
+      return arr.reverse();
     }) as FirebaseListObservable<Listing[]>;
 
+    // News
     this.news = this.db.list('/news') as FirebaseListObservable<News[]>;
 
-    this.nutritions = this.db.list('/nutritions') as FirebaseListObservable<Nutrition[]>;
+    // Nutritions
+    this.nutritions = this.db.list('/nutritions').map(arr => {
+      return arr.reverse();
+    }) as FirebaseListObservable<Nutrition[]>;
 
+    // Blogs
     this.blogs = this.db.list('/blogs').map( arr => {
       return arr.reverse();
     }) as FirebaseListObservable<Blog[]>;
@@ -92,7 +94,7 @@ export class FirebaseService {
    * Add single listing
    */
   addListing(listing) {
-
+    ////////// Adding Exercise //////////
     // Create root ref
     let storageRef = firebase.storage().ref();
     for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
@@ -108,14 +110,28 @@ export class FirebaseService {
         // If upload failed
         console.log(error)
       }
-
       this.iRef.then((snapshot) => {
         console.log(snapshot)
         listing.url = snapshot.downloadURL;
-        //listing.image = selectedFile.name;
+        console.log(listing.url);
         listing.path = path;
         //console.log(path);
         return this.listings.push(listing);
+      });
+    }
+
+    ////////// Adding Thumbnail //////////
+    let thumbnailStorageRef = firebase.storage().ref();
+    for(let selectedFile of [(<HTMLInputElement>document.getElementById('thumbnail')).files[0]]) {
+      let path = `/${this.thumbnailFolder}/${selectedFile.name}`;
+      //console.log(path);
+      let imageRef = thumbnailStorageRef.child(path);
+      imageRef.put(selectedFile).then((snapshot) => {
+        listing.thumbnail = snapshot.downloadURL;
+        console.log(listing.thumbnail);
+      
+        ////////// Updating the listings collection //////////
+        return this.listings.update(listing, listing.thumbnail );
       });
     }
   }

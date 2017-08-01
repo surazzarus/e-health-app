@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
     <div *ngIf="listings">
-      <h4 class="text-center">Please select the body part you would like to foucs on. Or feel free to choose some of the videos related to workstation ergonomics.</h4>
+      <h4 class="text-center">Please select the body part you would like to foucs on. Or feel free to choose any the videos related to exercises and workstation ergonomics.</h4>
       <div class="row flex-row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
@@ -87,7 +87,7 @@
                 </g>
               </svg>
 
-              <button (click)="refresh()" id="refresh"><i class="fa fa-spinner" aria-hidden="true"></i></button>
+              <button (click)="refresh()" id="refresh"><i class="fa fa-history" aria-hidden="true"></i></button>
           </div>
         </div>
         <div class="col-sm-4"></div>
@@ -103,15 +103,18 @@
         <div class="row my-flex-card">
           <div class="col-md-6 col-lg-3 my-1" *ngFor="let listing of listings |filter:term">
             <div class="card">
-              <video width="400" class="card-img-top img-fluid">
-                <source src="{{listing.url}}" type="video/mp4">
-                Your browser does not support HTML5 video.
-              </video>
+              <a [routerLink]="['/listing/'+listing.$key]">
+                <div class="video-screen card-img-top img-fluid">
+                  <i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i>
+                 
+                    <img src="{{listing.thumbnail}}" class="">
+                
+                </div>
+              </a>
 
               <div class="card-block">
                 <h5 class="card-title">{{listing.title}}</h5>
                 <p class="card-text card-desc">{{listing.desc}}</p>
-                <a [routerLink]="['/listing/'+listing.$key]" class="btn btn-primary">Show Details</a>
               </div>
             </div>
           </div>

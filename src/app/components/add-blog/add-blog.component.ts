@@ -13,7 +13,10 @@ export class AddBlogComponent implements OnInit {
   title: string;
   author: string;
   transformedDate: string = new Date().toJSON().slice(0,10).replace(/-/g,'.');
-  desc: string;
+  desc1: string;
+  desc2: string;
+  desc3: string;
+  desc4: string;
   date: any = new Date();
   createdAt: any = this.date.getTime();
 
@@ -37,7 +40,10 @@ export class AddBlogComponent implements OnInit {
       title: this.title,
       author: this.author,
       currentDate: this.currentDate,
-      desc: this.desc,
+      desc1: this.desc1,
+      desc2: this.desc2,
+      desc3: this.desc3,
+      desc4: this.desc4,
       createdAt: this.createdAt
     }
 
@@ -45,15 +51,16 @@ export class AddBlogComponent implements OnInit {
 
     this.firebaseService.addBlog(blog);
 
-    this.router.navigate(['/add-blog']);
-
     // Reset the fields
     this.title = '';
     this.author = '';
     this.currentDate = '';
-    this.desc = '';
+    this.desc1 = '';
+    this.desc2 = '';
+    this.desc3 = '';
+    this.desc4 = '';
 
-    this._flashMessagesService.show('New Blog added successfully!', { cssClass: 'alert-success', timeout: 5000 });
+    this._flashMessagesService.show('New Blog added successfully!', { cssClass: 'alert-success', timeout: 3500 });
 
   }
 

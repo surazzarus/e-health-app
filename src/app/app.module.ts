@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 
@@ -21,8 +21,6 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import {FirebaseService} from './shared/services/firebase.service';
 import {AuthService} from './shared/services/auth.service';
 
-// Guards
-import { AuthGuard } from './shared/guards/auth.guard';
 
 // Components
 import { AppComponent } from './app.component';
@@ -48,28 +46,10 @@ import { AddBlogComponent } from './components/add-blog/add-blog.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
 import { NutritionComponent } from './components/nutrition/nutrition.component';
 
-const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'listings', component: ListingsComponent, canActivate: [AuthGuard]},
-  {path: 'add-listing', component: AddListingComponent},
-  {path: 'listing/:id', component: ListingComponent},
-  {path: 'edit-listing/:id', component: EditListingComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'login-email', component: LoginEmailComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'news', component: NewsComponent, canActivate: [AuthGuard]},
-  {path: 'add-news', component: AddNewsComponent},
-  {path: 'blogs', component: BlogsComponent},
-  {path: 'blog/:id', component: BlogComponent},
-  {path: 'add-blog', component: AddBlogComponent},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
-  {path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
-  {path: 'survey', component: SurveyComponent, canActivate: [AuthGuard]},
-  {path: 'nutritions', component: NutritionsComponent, canActivate: [AuthGuard]},
-  {path: 'add-nutrition', component: AddNutritionComponent, canActivate: [AuthGuard]},
-  {path: '**', component: PageNotFoundComponent}
+// Guards
+import { AuthGuard } from './shared/guards/auth.guard';
 
-]
+import { appRoutes } from './app.routes';
 
 @NgModule({
   declarations: [

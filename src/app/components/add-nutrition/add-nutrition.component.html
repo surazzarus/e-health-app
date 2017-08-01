@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <a [routerLink]="['/nutritions']">Back</a>
-      <br />
+      <flash-messages></flash-messages>
+      <router-outlet></router-outlet>
       <h2 class="page-header">Add Nutrition</h2>
       <form (submit)="onNutritionSubmit()" ngNativeValidate>
         <div class="form-group">
@@ -10,8 +10,20 @@
           <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
         </div>
         <div class="form-group">
-          <label for="exampleTextarea">Description</label>
-          <textarea class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="desc" name="desc" required></textarea>
+          <label for="exampleTextarea">Ingredients</label>
+          <textarea class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="ingredients" name="ingredients" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleTextarea">Description1</label>
+          <textarea class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="desc1" name="desc1" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleTextarea">Description2</label>
+          <textarea class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="desc2" name="desc2" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleTextarea">Description3</label>
+          <textarea class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="desc3" name="desc3" required></textarea>
         </div>
         <div class="form-group">
           <input id="nutrition-image" name="image" type="file" >

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../../shared/services/firebase.service';
 import {Router} from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-add-news',
@@ -14,7 +15,11 @@ export class AddNewsComponent implements OnInit {
   date: any = new Date();
   createdAt: any = this.date.getTime();
 
-  constructor(private firebaseService: FirebaseService, private router: Router) { }
+  constructor(
+    private firebaseService: FirebaseService,
+    private router: Router,
+    private _flashMessagesService: FlashMessagesService
+  ) { }
 
   onNewsSubmit() {
     let news = {
@@ -28,7 +33,7 @@ export class AddNewsComponent implements OnInit {
 
     this.firebaseService.addNews(news);
 
-    this.router.navigate(['/news']);
+    this._flashMessagesService.show('New News added successfully!', { cssClass: 'alert-success', timeout: 3500 });
   }
 
   ngOnInit() {

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../../shared/services/firebase.service';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import { Upload } from '../../../upload';
-import * as _ from "lodash";
+import { FlashMessagesService } from 'angular2-flash-messages';
+
 
 @Component({
   selector: 'app-add-listing',
@@ -13,29 +14,38 @@ export class AddListingComponent implements OnInit {
   title: any;
   desc: any;
   owner: any;
-  image: any;
-  url: any;
+  url: any = '';
   date: any = new Date();
   createdAt: any = this.date.getTime();
 
   selectedFiles: FileList;
   currentUpload: Upload;
 
-  constructor(private firebaseService: FirebaseService, private router: Router) { }
+  constructor(
+    private firebaseService: FirebaseService,
+    private router: Router,
+    private _flashMessagesService: FlashMessagesService
+  ) { }
 
   onAddSubmit() {
     let listing = {
       title: this.title,
       desc: this.desc,
       owner: this.owner,
-      createdAt: this.createdAt
+      createdAt: this.createdAt,
+      url: this.url
     }
 
     console.log(this.createdAt);
 
     this.firebaseService.addListing(listing);
 
-    this.router.navigate(['/listings']);
+    // Reset listing
+    this.title = '';
+    this.desc = '';
+    this.owner = '';
+
+    this._flashMessagesService.show('New Exercise added successfully!', { cssClass: 'alert-success', timeout: 3500 });
   }
 
 /*

@@ -1,0 +1,29 @@
+img {
+  width: 100%;
+}
+
+img:hover {
+  opacity: 0.8;
+}
+
+.video-screen {
+  position: relative;
+}
+
+.fa-play-circle-o {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: none;
+}
+
+.video-screen:hover .fa-play-circle-o {
+  display: block;
+  
+}
+
+#refresh {
+  cursor: pointer;
+}

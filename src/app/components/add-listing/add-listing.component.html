@@ -1,38 +1,50 @@
-<a [routerLink]="['/listings']">Back</a>
-<br />
-<h2 class="page-header">Add Listing</h2>
-<form (submit)="onAddSubmit()" ngNativeValidate #loginForm="ngForm">
-  <div class="form-group">
-    <label>Title</label>
-    <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
-  </div>
-  <div class="form-group">
-    <label for="desc">Description</label>
-    <textarea class="form-control" id="desc" rows="3" [(ngModel)]="desc" name="desc" required></textarea>
-  </div>
-  <div class="form-group">
-    <label>Model</label>
-    <input class="form-control" type="text" [(ngModel)]="owner" name="owner" required>
-  </div>
-  <div class="form-group">
-    <input id="image" name="image" [(ngModel)]="image" type="file">
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <flash-messages></flash-messages>
+      <router-outlet></router-outlet>
 
-<!--
-  <div *ngIf="currentUpload">
-  <div class="progress">
-    <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+      <h2 class="page-header">Add Exercise</h2>
+      <form (submit)="onAddSubmit()" ngNativeValidate #loginForm="ngForm">
+        <div class="form-group">
+          <label>Title</label>
+          <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="desc">Description</label>
+          <textarea class="form-control" id="desc" rows="3" [(ngModel)]="desc" name="desc" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Source</label>
+          <input class="form-control" type="text" [(ngModel)]="owner" name="owner" required>
+        </div>
+        <div class="form-group file-input">
+          <span class="lead">Browse Thumbnail</span><br/>
+          <input id="thumbnail" type="file" >
+        </div>
+        <div class="form-group file-input">
+          <span class="lead">Browse Exercise</span><br/>
+          <input id="image" name="image" [(ngModel)]="image" type="file">
+        </div>
+
+      <!--
+        <div *ngIf="currentUpload">
+        <div class="progress">
+          <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+        </div>
+        Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+      </div>
+
+        <button
+
+                  (click)="uploadSingle()">
+
+            Upload Single
+          </button>
+        -->
+
+        <input type="submit" [disabled]="!loginForm.valid" value="submit" class="btn btn-success">
+      </form>
+    </div>
   </div>
-  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
 </div>
-
-  <button
-
-            (click)="uploadSingle()">
-
-      Upload Single
-    </button>
-  -->
-
-  <input type="submit" [disabled]="!loginForm.valid" value="submit" class="btn btn-success">
-</form>

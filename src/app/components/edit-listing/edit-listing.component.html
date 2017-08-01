@@ -1,23 +1,30 @@
-<a [routerLink]="['/listings']">Back</a>
-<br />
-<h2 class="page-header">Edit Listing</h2>
-<form (submit)="onEditSubmit()">
-  <div class="form-group">
-    <label>Title</label>
-    <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <flash-messages></flash-messages>
+      <router-outlet></router-outlet>
+
+      <h2 class="page-header">Edit Listing</h2>
+      <form (submit)="onEditSubmit()">
+        <div class="form-group">
+          <label>Title</label>
+          <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="desc">Description</label>
+          <textarea class="form-control" id="desc" rows="3" [(ngModel)]="desc" name="desc" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Owner</label>
+          <input class="form-control" type="text" [(ngModel)]="owner" name="owner" required>
+        </div>
+        <!--
+        <div class="form-group">
+          <input id="image" name="image" [(ngModel)]="image" type="file" >
+        </div>
+        -->
+        <input type="submit" value="submit" class="btn btn-success">
+      </form>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="desc">Description</label>
-    <textarea class="form-control" id="desc" rows="3" [(ngModel)]="desc" name="desc" required></textarea>
-  </div>
-  <div class="form-group">
-    <label>Owner</label>
-    <input class="form-control" type="text" [(ngModel)]="owner" name="owner" required>
-  </div>
-  <!--
-  <div class="form-group">
-    <input id="image" name="image" [(ngModel)]="image" type="file" >
-  </div>
-  -->
-  <input type="submit" value="submit" class="btn btn-success">
-</form>
+</div>

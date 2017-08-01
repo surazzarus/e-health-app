@@ -8,9 +8,9 @@
 
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav mr-auto">
-        <li data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!(user | async)" class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/']">Home</a></li>
+        <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="!(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/']">Home</a></li>
         <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/profile']">Profile</a></li>
-        <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/blogs']">Blog</a></li>
+        <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/blogs']">Blog</a></li>
         <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/news']">News</a></li>
         <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/listings']">Exercises</a></li>
         <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/nutritions']">Nutritions</a></li>

@@ -2,30 +2,36 @@
   <div class="row my-flex-card">
     <div class="col-md-4 my-1" *ngFor="let nutrition of nutritions">
       <div class="card">
-        <a href="#" data-toggle="modal" data-target="#nutritionDetails">
+        <a href="#" (click)="showCurrent(nutrition)" data-toggle="modal" data-target=".nutritionDetails">
           <img class="card-img-top img-fluid" src="{{nutrition.url}}" alt="">
           <h5 class="card-title px-4 pt-4">{{nutrition.title}}</h5>
           <div class="card-block">
-            <p class="card-text news-desc">{{nutrition.desc}}</p>
+            <p class="card-text news-desc">{{nutrition.desc1}}</p>
           </div>
         </a>
       </div>
 
-      <div class="modal fade" id="nutritionDetails" tabindex="-1" role="dialog" aria-labelledby="nutritionDetailsTitle" aria-hidden="true">
+      <div class="modal fade nutritionDetails" tabindex="-1" role="dialog" aria-labelledby="nutritionDetailsTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="nutritionDetailsTitle">{{nutrition.title}}</h5>
+              <h5 class="modal-title" id="nutritionDetailsTitle">{{currentNutrition.title}}</h5>
 
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <img class="card-img-top img-fluid" src="{{nutrition.url}}" alt="">
+              <img class="card-img-top img-fluid" src="{{currentNutrition.url}}" alt="">
               <p><mark>Source: www.eatsmarter.com</mark></p>
               <br/>
-              <p>{{nutrition.desc}}</p>
+              <h5>Ingredients:</h5>
+              <p class="lead">{{currentNutrition.ingredients}}</p>
+
+              <h5>Preparation steps</h5>
+              <p>{{currentNutrition.desc1}}</p>
+              <p>{{currentNutrition.desc2}}</p>
+              <p>{{currentNutrition.desc3}}</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

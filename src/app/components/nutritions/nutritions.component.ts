@@ -11,15 +11,19 @@ import { Nutrition } from '../../shared/models/nutrition';
 })
 export class NutritionsComponent implements OnInit {
   nutritions: Nutrition[];
+  currentNutrition: Nutrition = {};
 
   constructor(private firebaseService: FirebaseService) { }
+
+  showCurrent(nutrition) {
+    this.currentNutrition = nutrition;
+  }
 
   ngOnInit() {
     this.firebaseService.getNutritions()
       .subscribe(nutritions => {
-        //console.log(news);
+        //console.log(nutritions);
         this.nutritions = nutritions;
-        console.log(typeof(nutritions))
       })
   }
 
