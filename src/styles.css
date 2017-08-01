@@ -16,6 +16,9 @@ a {
   text-decoration: none !important;
 }
 
+
+/***** User Login and Register *****/
+
 .form-container {
   background: white;
   padding: 2em;
@@ -77,8 +80,23 @@ h2 {
   font-size: 1em;
 }
 
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1.2em;
+    width: 90%;
+    margin-left: -45%;
+  }
+  button {
+    font-size: 1em;
+  }
+}
 
-/* Loading */
+.alc {
+  color: #2C3E50;
+}
+
+
+/***** Loading *****/
 
 .spinner {
   margin: 100px auto;
@@ -138,56 +156,7 @@ h2 {
 }
 
 
-/*
-
-.loading {
-  width: 30px;
-  height: 30px;
-  border: 5px solid #ccc;
-  position: fixed;
-  left: 50%;
-  margin-left: -20px;
-  top: 50%;
-  margin-top: -20px;
-  border-radius: 50%;
-}
-
-.loading:after {
-  content: '';
-  position: absolute;
-  width: 40px;
-  height: 10px;
-  background: #E2E4E6;
-  top: 10px;
-  left: -5px;
-  animation: spin 1.2s infinite;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-*/
-
-@media (max-width: 600px) {
-  .form-container {
-    padding: 1.2em;
-    width: 90%;
-    margin-left: -45%;
-  }
-  button {
-    font-size: 1em;
-  }
-}
-
-.alc {
-  color: #2C3E50;
-}
-
-
-/* For navbar */
+/***** Navbar *****/
 
 .navbar-inverse .navbar-nav .nav-link {
   color: #9E9E9E;
@@ -232,7 +201,7 @@ h2 {
 }
 
 
-/* Bootstrap Cards */
+/***** Bootstrap Cards *****/
 
 .card-desc {
   overflow: hidden;
@@ -243,7 +212,7 @@ h2 {
 }
 
 
-/* News */
+/***** News *****/
 
 .news-desc {
   overflow: hidden;
@@ -263,7 +232,7 @@ h2 {
 }
 
 
-/* Mankin */
+/***** Mankin *****/
 
 .manikin_svg {
   max-width: 175px;
@@ -291,33 +260,9 @@ h2 {
 }
 
 
-/* welcome page */
+/***** welcome page *****/
 
 .welcome {
   max-width: 600px;
   margin: 30px auto;
 }
-
-
-/* Materialized overwrite */
-
-
-/*
-.profile-md-btn {
-  bottom: 45px;
-  right: 24px;
-}
-
-.btn-large {
-  border-radius: 35px;
-  position: relative;
-}
-
-.tap-target-origin {
-  border-radius: 35px;
-}
-
-.card {
-  border: 0;
-}
-*/

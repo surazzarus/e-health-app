@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyAeecna5yWaZ1Kc5UUBTQSKzEBBlu0h6Lc",
-    authDomain: "ng2-firebaseauth.firebaseapp.com",
-    databaseURL: "https://ng2-firebaseauth.firebaseio.com",
-    projectId: "ng2-firebaseauth",
-    storageBucket: "ng2-firebaseauth.appspot.com",
-    messagingSenderId: "785173058498"
+    apiKey: "AIzaSyCZ9XD0D0HSCngaYyZ0ovKTdE_jLu5Uxkg",
+    authDomain: "e-health-app.firebaseapp.com",
+    databaseURL: "https://e-health-app.firebaseio.com",
+    projectId: "e-health-app",
+    storageBucket: "e-health-app.appspot.com",
+    messagingSenderId: "87995826896"
   }
 };
