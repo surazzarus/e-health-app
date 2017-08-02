@@ -232,9 +232,9 @@ h2 {
 }
 
 
-/***** Mankin *****/
+/***** Dummy *****/
 
-.manikin_svg {
+.dummy_svg {
   max-width: 175px;
   display: block;
   margin: 0 auto;
@@ -246,17 +246,17 @@ h2 {
 }
 
 .rotate-button {
-  text-align: center
+  text-align: center;
 }
 
-.cls-1 {
+.body-part {
   opacity: 0;
-  cursor: pointer
+  cursor: pointer;
 }
 
-.cls-1:hover {
+.body-part:hover {
   opacity: .2;
-  cursor: pointer
+  cursor: pointer;
 }
 
 
