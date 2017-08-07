@@ -7,7 +7,7 @@
     <a class="navbar-brand" style="color: #B4B4B4;">e-Health App</a>
 
     <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto" *ngIf="!showNav">
         <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="!(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/']">Home</a></li>
         <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/profile']">Profile</a></li>
         <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/blogs']">Blog</a></li>
@@ -15,7 +15,7 @@
         <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/listings']">Exercises</a></li>
         <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/nutritions']">Nutritions</a></li>
       </ul>
-      <ul class="navbar-nav">
+      <ul class="navbar-nav ml-auto">
         <li data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!(user | async)" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="btn btn-outline-secondary" [routerLink]="['/login']">Login</a></li>
         <li data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!(user | async)" class="nav-item register" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="btn btn-outline-secondary" [routerLink]="['/signup']">Register</a></li>
         <li data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="(user | async)" class="nav-item logout" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="btn btn-outline-secondary logout" (click)="logout()">Logout</a></li>

@@ -16,6 +16,9 @@ export class SurveyComponent implements OnInit, OnDestroy {
   name: string;
   email: string;
 
+  // Export this property to navbar to hide the content when this component is active
+  showNav:boolean = true;
+
   options:any = [
     {label: "I'd like to be fitter.", checked: false},
     {label: "I am unconfortable during work.", checked: false},

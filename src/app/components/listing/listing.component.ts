@@ -21,6 +21,7 @@ export class ListingComponent implements AfterViewInit, OnInit, OnDestroy {
   imageUrl: any;
   videoUrl: any;
   private videoJSplayer: any;
+  rating: number = 4;
 
   constructor(
     private firebaseService: FirebaseService,
