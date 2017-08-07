@@ -14,6 +14,8 @@ import {Router} from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  showNav;
+
   user: Observable<firebase.User>;
 
   constructor(

@@ -53,15 +53,7 @@ export class LoginComponent implements OnInit {
             });
 
 
-            if(ifExists) {
-              // If user already exists
-              this.router.navigate(['/profile']);
-              console.log('Data info already exists in database');
-              return;
-
-
-            }
-            else {
+            if(!ifExists) {
               // If email does not exists in the database i.e. New user
               let currentUserUid = this.afAuth.auth.currentUser.uid; // Get 'currentUserUid'
               this.db.object(`users/${currentUserUid}`).update({
@@ -69,15 +61,17 @@ export class LoginComponent implements OnInit {
                 name: data.user.displayName
               });
               console.log('New data info added to database');
-              /*
-              this.users.push({
-                email: data.user.email,
-                name: data.user.displayName
-              })
-              */
-              this.router.navigate(['/survey']);
-              return;
 
+              this.router.navigate(['/welcome']);
+              /* Stop javascript's execution */
+              throw new Error("Changing route to welcome screen for new user!");
+            }
+
+            else {
+              // If user already exists
+              this.router.navigate(['/profile']);
+              console.log('Data info already exists in database');
+              return;
             }
           })
 
@@ -92,12 +86,45 @@ export class LoginComponent implements OnInit {
 
   signInWithFacebook() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
-      .then((success) => {
-          this.router.navigate(['/profile']);
-        }).catch(
-          (err) => {
-            this.error = err;
+    .then((data) => {
+      // Checking if the email exists in the database
+        this.users.subscribe(users => {
+          console.log(users) // Displays array of objects
+
+          // Scanning through the array of objects to see if new email match the existing email in database
+          var ifExists = users.some(function(el) {
+            return el.email === data.user.email;
+          });
+
+
+          if(!ifExists) {
+            // If email does not exists in the database i.e. New user
+            let currentUserUid = this.afAuth.auth.currentUser.uid; // Get 'currentUserUid'
+            this.db.object(`users/${currentUserUid}`).update({
+              email: data.user.email,
+              name: data.user.displayName
+            });
+            console.log('New data info added to database');
+
+            this.router.navigate(['/welcome']);
+            /* Stop javascript's execution */
+            throw new Error("Changing route to welcome screen for new user!");
+          }
+
+          else {
+            // If user already exists
+            this.router.navigate(['/profile']);
+            console.log('Data info already exists in database');
+            return;
+          }
         })
+
+        console.log(data.user.email)
+
+      }).catch(
+        (err) => {
+          this.error = err;
+      })
   }
 
 
