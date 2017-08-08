@@ -71,7 +71,6 @@ export class LoginComponent implements OnInit {
               // If user already exists
               this.router.navigate(['/profile']);
               console.log('Data info already exists in database');
-              return;
             }
           })
 
@@ -129,6 +128,9 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
+    particlesJS.load('particles-js', 'assets/particles.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
   }
 
 }

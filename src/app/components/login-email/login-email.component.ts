@@ -68,6 +68,9 @@ export class LoginEmailComponent implements OnInit {
   */
 
   ngOnInit() {
+    particlesJS.load('particles-js', 'assets/particles.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
   }
 
 }

@@ -1,11 +1,13 @@
-<div class="form-container" @moveIn>
-  <img src="assets/img/lock.svg" id="lock">
+<div id="particles-js">
+  <div class="form-container" @moveIn>
+    <img src="assets/img/lock.svg" id="lock">
 
-    <span class="error" *ngIf="error">{{ error }}</span>
+      <span class="error" *ngIf="error">{{ error }}</span>
 
-  <button class="login-button" (click)="signInWithFacebook()" id="fb">Login With Facebook</button><br>
-  <button class="login-button" (click)="signInWithGoogle()" id="google">Login With Google</button>
-  <button class="login-button" routerLink="/login-email" id="email">Email</button>
+    <button class="login-button" (click)="signInWithFacebook()" id="fb">Login With Facebook</button><br>
+    <button class="login-button" (click)="signInWithGoogle()" id="google">Login With Google</button>
+    <button class="login-button" routerLink="/login-email" id="email">Email</button>
 
-  <a routerLink="/signup" routerLinkActive="active" class="alc">No account? <strong>Create one here</strong></a>
+    <a routerLink="/signup" routerLinkActive="active" class="alc">No account? <strong>Create one here</strong></a>
+  </div>
 </div>
