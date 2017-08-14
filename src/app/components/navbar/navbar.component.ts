@@ -34,6 +34,15 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  changeRoute() {
+    if(this.user) {
+      this.router.navigate(['/profile']);
+    }
+    else {
+      this.router.navigate(['/']);
+    }
+  }
+
   ngOnInit() {
   }
 

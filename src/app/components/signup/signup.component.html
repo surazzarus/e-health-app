@@ -1,10 +1,10 @@
 <div id="particles-js">
-  <div class="form-container" @moveIn>
+  <div class="form-container">
     <a routerLink="/login" id="goback">Go back</a>
 
     <h2>Join now</h2>
 
-    <span class="error" *ngIf="error" @fallIn>{{ error }}</span>
+    <span class="error" *ngIf="error">{{ error }}</span>
 
     <form #formData='ngForm' (ngSubmit)="onSubmit()">
       <input type="text" placeholder="Name" [(ngModel)]="name" name="name" class="txt" required>

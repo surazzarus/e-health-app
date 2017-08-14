@@ -24,7 +24,7 @@ export class BlogComponent implements OnInit {
     //console.log(this.id)
     this.firebaseService.getBlogDetails(this.id).subscribe(blog => {
       this.blog = blog;
-      console.log(blog)
+      //console.log(blog)
     })
   }
 

@@ -4,14 +4,12 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
-import {moveIn, fallIn} from '../../router.animations';
 import { User } from '../../shared/models/user';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css'],
-  animations: [moveIn(), fallIn()]
+  styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
 
@@ -30,8 +28,7 @@ export class SignupComponent implements OnInit {
   ) {
     this.users = this.db.list('/users') as FirebaseListObservable<User[]>;
 
-    console.log(this.users)
-
+    //console.log(this.users)
 
   }
 
@@ -54,12 +51,14 @@ export class SignupComponent implements OnInit {
         */
 
         this.router.navigate(['/welcome'])
-        console.log(data.email);
+        //console.log(data.email);
 
         ///// Send Email to user after registration is done /////
         let user:any = firebase.auth().currentUser; // Get current user
            user.sendEmailVerification().then(
-             (success) => {console.log("please verify your email")}
+             (success) => {
+               //console.log("please verify your email")
+             }
            ).catch(
              (err) => {
                this.error = err;
@@ -95,7 +94,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     particlesJS.load('particles-js', 'assets/particles.json', function() {
-      console.log('callback - particles.js config loaded');
+      //console.log('callback - particles.js config loaded');
     });
   }
 

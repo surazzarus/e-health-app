@@ -32,10 +32,10 @@ export class ListingComponent implements AfterViewInit, OnInit, OnDestroy {
   ngOnInit() {
     //// Fetch the ID from the URL ////
     this.id = this.route.snapshot.params['id'];
-    console.log(this.id);
+    //console.log(this.id);
 
     this.firebaseService.getListingDetails(this.id).subscribe(listing => {
-      console.log(listing)
+      //console.log(listing)
       this.listing = listing;
       this.videoUrl = listing.url;
       //console.log(this.listing)

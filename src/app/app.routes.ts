@@ -23,6 +23,8 @@ import { AddBlogComponent } from './components/add-blog/add-blog.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
 import { NutritionComponent } from './components/nutrition/nutrition.component';
 
+import {BlogsResolve} from './shared/services/blogs-resolve.service';
+
 // Guards
 import { AuthGuard } from './shared/guards/auth.guard';
 
@@ -37,7 +39,13 @@ export const appRoutes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'news', component: NewsComponent, canActivate: [AuthGuard]},
   {path: 'admin/add-news', component: AddNewsComponent},
-  {path: 'blogs', component: BlogsComponent},
+  {
+    path: 'blogs',
+    component: BlogsComponent,
+    resolve: {
+      blogs: BlogsResolve
+    }
+  },
   {path: 'blog/:id', component: BlogComponent},
   {path: 'admin/add-blog', component: AddBlogComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},

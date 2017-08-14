@@ -20,6 +20,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 // Services
 import {FirebaseService} from './shared/services/firebase.service';
 import {AuthService} from './shared/services/auth.service';
+import {BlogsResolve} from './shared/services/blogs-resolve.service';
 
 
 // Components
@@ -90,7 +91,13 @@ import { appRoutes } from './app.routes';
     MyDatePickerModule,
     StarRatingModule.forRoot()
   ],
-  providers: [FirebaseService, AngularFireDatabase, AuthService, AuthGuard],
+  providers: [
+    FirebaseService,
+    AngularFireDatabase,
+    AuthService,
+    AuthGuard,
+    BlogsResolve
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FirebaseService} from '../../shared/services/firebase.service';
+import { ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Blog } from '../../shared/models/blog';
@@ -12,13 +12,14 @@ import { Blog } from '../../shared/models/blog';
 export class BlogsComponent implements OnInit {
   blogs: Blog[];
 
-  constructor(private firebaseService: FirebaseService) { }
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
-    this.firebaseService.getBlogs()
-      .subscribe(blogs => {
-        console.log(blogs);
-        this.blogs = blogs
+      this.route.data.forEach((data: { blogs: Blog[] } )=> {
+        //console.log(data.blogs)
+        this.blogs = data.blogs
       })
   }
 

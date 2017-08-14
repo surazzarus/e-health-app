@@ -4,11 +4,10 @@
         <span class="navbar-toggler-icon"></span>
   </button>
   <div class="container">
-    <a class="navbar-brand" style="color: #B4B4B4;">e-Health App</a>
+    <a class="navbar-brand" (click)="changeRoute()">e-Health App</a>
 
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav mr-auto" *ngIf="!showNav">
-        <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="!(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/']">Home</a></li>
         <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/profile']">Profile</a></li>
         <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/blogs']">Blog</a></li>
         <li data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-item" *ngIf="(user | async)"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/news']">News</a></li>

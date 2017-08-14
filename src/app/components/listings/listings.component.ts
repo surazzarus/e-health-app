@@ -25,7 +25,7 @@ export class ListingsComponent implements OnInit {
     // IF done using Brad's way using obserables and also dosen't work with 'async' on html
     this.firebaseService.getListings()
       .subscribe(listings => {
-        console.log(listings);
+        //console.log(listings);
         this.listings = listings
       })
 

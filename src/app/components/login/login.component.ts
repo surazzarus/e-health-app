@@ -5,13 +5,11 @@ import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { User } from '../../shared/models/user';
-import { moveIn } from '../../router.animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  animations: [moveIn()]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
@@ -45,7 +43,7 @@ export class LoginComponent implements OnInit {
       .then((data) => {
         // Checking if the email exists in the database
           this.users.subscribe(users => {
-            console.log(users) // Displays array of objects
+            //console.log(users) // Displays array of objects
 
             // Scanning through the array of objects to see if new email match the existing email in database
             var ifExists = users.some(function(el) {
@@ -60,7 +58,7 @@ export class LoginComponent implements OnInit {
                 email: data.user.email,
                 name: data.user.displayName
               });
-              console.log('New data info added to database');
+              //console.log('New data info added to database');
 
               this.router.navigate(['/welcome']);
               /* Stop javascript's execution */
@@ -70,7 +68,7 @@ export class LoginComponent implements OnInit {
             else {
               // If user already exists
               this.router.navigate(['/profile']);
-              console.log('Data info already exists in database');
+              //console.log('Data info already exists in database');
             }
           })
 
@@ -129,7 +127,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     particlesJS.load('particles-js', 'assets/particles.json', function() {
-      console.log('callback - particles.js config loaded');
+      //console.log('callback - particles.js config loaded');
     });
   }
 
