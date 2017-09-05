@@ -37,7 +37,9 @@ export class FirebaseService {
     }) as FirebaseListObservable<Listing[]>;
 
     // News
-    this.news = this.db.list('/news') as FirebaseListObservable<News[]>;
+    this.news = this.db.list('/news').map(arr => {
+      return arr.reverse();
+    }) as FirebaseListObservable<News[]>;
 
     // Nutritions
     this.nutritions = this.db.list('/nutritions').map(arr => {
@@ -129,7 +131,7 @@ export class FirebaseService {
       imageRef.put(selectedFile).then((snapshot) => {
         listing.thumbnail = snapshot.downloadURL;
         console.log(listing.thumbnail);
-      
+
         ////////// Updating the listings collection //////////
         return this.listings.update(listing, listing.thumbnail );
       });

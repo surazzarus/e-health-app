@@ -35,10 +35,6 @@ export class AddNewsComponent implements OnInit {
 
     this._flashMessagesService.show('New News added successfully!', { cssClass: 'alert-success', timeout: 3500 });
 
-    // Reset listing
-    this.siteUrl = '';
-    this.title = '';
-    this.desc = '';
   }
 
   ngOnInit() {

@@ -4,7 +4,8 @@
       <flash-messages></flash-messages>
       <router-outlet></router-outlet>
         <h2 class="page-header">Add News</h2>
-        <form (submit)="onNewsSubmit()" ngNativeValidate>
+
+        <form #newsForm="ngForm" (ngSubmit)="onNewsSubmit(); newsForm.reset()" ngNativeValidate>
           <div class="form-group">
             <label>Site Url</label>
             <input class="form-control" type="text" [(ngModel)]="siteUrl" name="siteUrl" required>
